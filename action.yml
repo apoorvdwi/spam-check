@@ -1,0 +1,20 @@
+name: 'Spam Check'
+author: 'apoorvd14@gmail.com'
+description: 'Spam Check helps you to filter out spam PRs in your repository.'
+branding:
+  icon: 'info'
+  color: 'green'
+
+runs:
+  using: 'composite'
+  steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Run Spam Checker
+      uses: 'docker'
+      with:
+        image: 'Dockerfile'
+        env:
+          - OPENAI_API_KEY=${{ secrets.OPENAI_API_KEY }}
+          - GITHUB_TOKEN=${{ secrets.GITHUB_TOKEN }}
