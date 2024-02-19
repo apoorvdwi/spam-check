@@ -28,7 +28,7 @@ name: Spam Check Workflow
 
 on:
   pull_request:
-    types: [opened, edited, reopened]
+    types: [opened, edited, reopened, synchronize]
 
 jobs:
   spam-check:
@@ -38,8 +38,10 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Run Spam Checker
-        uses: apoorvdwi/spam-check@v1
-        with: 
+        uses: apoorvdwi/spam-check@v2.3
+        with:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
 ```
