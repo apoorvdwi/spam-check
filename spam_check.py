@@ -11,7 +11,6 @@ from langchain_core.output_parsers import StrOutputParser
 GITHUB_TOKEN = os.getenv('GITHUB_TOKEN')
 OPENAI_API_KEY = os.getenv('OPENAI_API_KEY')
 
-repo_owner = os.getenv('GITHUB_REPOSITORY_OWNER')
 repo_name = os.getenv('GITHUB_REPOSITORY')
 pr_number = os.getenv('PR_NUMBER')
 
@@ -34,8 +33,8 @@ def fetch_commit_diff(commit_url, token):
     return json.dumps(commit_details)
 
 
-def get_pr_commits(owner, repo, pr_num, token):
-    url = f"https://api.github.com/repos/{owner}/{repo}/pulls/{pr_num}/commits"
+def get_pr_commits(repo, pr_num, token):
+    url = f"https://api.github.com/repos/{repo}/pulls/{pr_num}/commits"
     headers = {'Authorization': f'token {token}'}
     response = requests.get(url, headers=headers)
     response.raise_for_status()
@@ -69,7 +68,7 @@ def is_spammy_commit(commit, openai_api_key, github_token):
 
 
 def main():
-    commits = get_pr_commits(repo_owner, repo_name, pr_number, GITHUB_TOKEN)
+    commits = get_pr_commits(repo_name, pr_number, GITHUB_TOKEN)
     spammy_commits_detected = False
 
     for commit in commits:
