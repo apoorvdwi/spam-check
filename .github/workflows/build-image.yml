@@ -64,3 +64,4 @@ jobs:
           push: true
           tags: |
             ${{ env.REGISTRY }}/${{ github.repository }}:${{ github.ref_name }}
+            ${{ env.REGISTRY }}/${{ github.repository }}:latest
