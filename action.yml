@@ -11,6 +11,15 @@ inputs:
   GITHUB_TOKEN:
     description: 'GitHub Token'
     required: true
+  GITHUB_REPOSITORY_OWNER:
+    description: 'GitHub Repository Owner'
+    required: true
+  GITHUB_REPOSITORY:
+    description: 'GitHub Repository'
+    required: true
+  PR_NUMBER:
+    description: 'Pull Request Number'
+    required: true
 
 runs:
   using: 'docker'
@@ -18,6 +27,6 @@ runs:
   env:
     OPENAI_API_KEY: ${{ inputs.OPENAI_API_KEY }}
     GITHUB_TOKEN: ${{ inputs.GITHUB_TOKEN }}
-    GITHUB_REPOSITORY_OWNER: ${{ github.repository_owner }}
-    GITHUB_REPOSITORY: ${{ github.repository }}
-    PR_NUMBER: ${{ github.event.pull_request.number }}
+    GITHUB_REPOSITORY_OWNER: ${{ inputs.GITHUB_REPOSITORY_OWNER }}
+    GITHUB_REPOSITORY: ${{ inputs.GITHUB_REPOSITORY }}
+    PR_NUMBER: ${{ inputs.PR_NUMBER }}
