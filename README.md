@@ -1,9 +1,9 @@
 ![spam-check](https://socialify.git.ci/apoorvdwi/spam-check/image?description=1&descriptionEditable=Spam%20Check%20leverages%20the%20GitHub%20Actions%20platform%20to%20scan%20incoming%20pull%20requests%20for%20signs%20of%20spam.&font=Inter&language=1&name=1&owner=1&pattern=Plus&theme=Light)
+
 # Spam Check GitHub Action
 
 ![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/apoorvdwi/spam-check/.github%2Fworkflows%2Fbuild-image.yml)
 ![GitHub License](https://img.shields.io/github/license/apoorvdwi/spam-check)
-
 
 This GitHub Action, named **Spam Check**, is designed to help maintainers identify and filter out spam pull requests (PRs) in their repositories. By integrating this action into their GitHub workflows, maintainers can automatically flag potential spam, allowing them to focus on legitimate contributions.
 
@@ -34,15 +34,12 @@ jobs:
   spam-check:
     runs-on: ubuntu-latest
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v2
+      - name: Checkout code
+        uses: actions/checkout@v2
 
-    - name: Run Spam Checker
-      uses: docker://your-docker-image
-      with:
-        env:
-          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          GITHUB_REPOSITORY_OWNER: ${{ github.repository_owner }}
-          GITHUB_REPOSITORY: ${{ github.repository }}
-          PR_NUMBER: ${{ github.event.pull_request.number }}
+      - name: Run Spam Checker
+        uses: apoorvdwi/spam-check@v1
+        with: 
+          OPENAI_API_KEY=${{ secrets.OPENAI_API_KEY }}
+          GITHUB_TOKEN=${{ secrets.GITHUB_TOKEN }}
+```
