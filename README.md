@@ -19,6 +19,7 @@ Spam Check leverages the GitHub Actions platform to scan incoming pull requests 
 
 ## Usage
 
+# apoorvdwi
 Create an OPENAI API key and add it to repository secrets.
 
 To use this action in your GitHub repository, create a workflow file (e.g., `.github/workflows/spam-check.yml`) and include the following configuration:
