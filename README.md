@@ -40,6 +40,6 @@ jobs:
       - name: Run Spam Checker
         uses: apoorvdwi/spam-check@v1
         with: 
-          OPENAI_API_KEY=${{ secrets.OPENAI_API_KEY }}
-          GITHUB_TOKEN=${{ secrets.GITHUB_TOKEN }}
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 ```
