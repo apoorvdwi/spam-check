@@ -11,9 +11,6 @@ inputs:
   GITHUB_TOKEN:
     description: 'GitHub Token'
     required: true
-  GITHUB_REPOSITORY_OWNER:
-    description: 'GitHub Repository Owner'
-    required: true
   GITHUB_REPOSITORY:
     description: 'GitHub Repository'
     required: true
@@ -27,6 +24,5 @@ runs:
   env:
     OPENAI_API_KEY: ${{ inputs.OPENAI_API_KEY }}
     GITHUB_TOKEN: ${{ inputs.GITHUB_TOKEN }}
-    GITHUB_REPOSITORY_OWNER: ${{ inputs.GITHUB_REPOSITORY_OWNER }}
     GITHUB_REPOSITORY: ${{ inputs.GITHUB_REPOSITORY }}
     PR_NUMBER: ${{ inputs.PR_NUMBER }}
