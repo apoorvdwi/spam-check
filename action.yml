@@ -23,8 +23,8 @@ runs:
       with:
         image: 'Dockerfile'
         env:
-          - OPENAI_API_KEY: ${{ inputs.OPENAI_API_KEY }}
-          - GITHUB_TOKEN: ${{ inputs.GITHUB_TOKEN }}
-          - GITHUB_REPOSITORY_OWNER: ${{ github.repository_owner }}
-          - GITHUB_REPOSITORY: ${{ github.repository }}
-          - PR_NUMBER: ${{ github.event.pull_request.number }}
+          OPENAI_API_KEY: ${{ inputs.OPENAI_API_KEY }}
+          GITHUB_TOKEN: ${{ inputs.GITHUB_TOKEN }}
+          GITHUB_REPOSITORY_OWNER: ${{ github.repository_owner }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
