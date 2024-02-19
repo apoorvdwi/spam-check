@@ -12,7 +12,7 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Run Spam Checker
-        uses: apoorvdwi/spam-check@v2
+        uses: apoorvdwi/spam-check@latest
         with:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
