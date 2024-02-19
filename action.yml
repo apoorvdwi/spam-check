@@ -13,18 +13,11 @@ inputs:
     required: true
 
 runs:
-  using: 'composite'
-  steps:
-    - name: Checkout code
-      uses: actions/checkout@v2
-
-    - name: Run Spam Checker
-      uses: 'docker'
-      with:
-        image: 'Dockerfile'
-        env:
-          OPENAI_API_KEY: ${{ inputs.OPENAI_API_KEY }}
-          GITHUB_TOKEN: ${{ inputs.GITHUB_TOKEN }}
-          GITHUB_REPOSITORY_OWNER: ${{ github.repository_owner }}
-          GITHUB_REPOSITORY: ${{ github.repository }}
-          PR_NUMBER: ${{ github.event.pull_request.number }}
+  using: 'docker'
+  image: 'Dockerfile'
+  env:
+    OPENAI_API_KEY: ${{ inputs.OPENAI_API_KEY }}
+    GITHUB_TOKEN: ${{ inputs.GITHUB_TOKEN }}
+    GITHUB_REPOSITORY_OWNER: ${{ github.repository_owner }}
+    GITHUB_REPOSITORY: ${{ github.repository }}
+    PR_NUMBER: ${{ github.event.pull_request.number }}
