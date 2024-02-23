@@ -17,6 +17,18 @@ inputs:
   PR_NUMBER:
     description: 'Pull Request Number'
     required: true
+  MAX_FILES:
+    description: 'Max Files'
+    required: false
+    default: '5'
+  FILES_TO_EXCLUDE:
+    description: 'Files to Exclude in comma seperated format'
+    required: false
+    default: ''
+  USE_GPT4:
+    description: 'Use GPT-4 for higher context length and more accuracy' 
+    required: false
+    default: 'false'
 
 runs:
   using: 'docker'
@@ -26,3 +38,6 @@ runs:
     GITHUB_TOKEN: ${{ inputs.GITHUB_TOKEN }}
     GITHUB_REPOSITORY: ${{ inputs.GITHUB_REPOSITORY }}
     PR_NUMBER: ${{ inputs.PR_NUMBER }}
+    MAX_FILES: ${{ inputs.MAX_FILES }}
+    FILES_TO_EXCLUDE: ${{ inputs.FILES_TO_EXCLUDE }}
+    USE_GPT4: ${{ inputs.USE_GPT4 }}
