@@ -48,3 +48,7 @@ jobs:
           FILES_TO_EXCLUDE: ''
           USE_GPT4: false
 ```
+
+## Examples
+- PR with failed check - https://github.com/apoorvdwi/spam-check/pull/3
+- PR with success check - https://github.com/apoorvdwi/spam-check/pull/4
