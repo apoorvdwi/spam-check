@@ -2,7 +2,7 @@ name: 'Spam Check'
 author: 'apoorvd14@gmail.com'
 description: 'Spam Check helps you to filter out spam PRs in your repository.'
 branding:
-  icon: 'info'
+  icon: 'shield'
   color: 'green'
 inputs:
   OPENAI_API_KEY:
